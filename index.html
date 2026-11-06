@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="robots" content="noindex,nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Multyx — Semiconductor Data Collaboration Across Partners</title>
-<meta name="description" content="Investigate yield, quality, and reliability questions across fabless, foundry, OSAT, and supplier boundaries, with governed insights for each partner.">
+<title>Multyx | Cross-Company Optimization for Semiconductors</title>
+<meta name="description" content="Optimize yield, capacity, time-to-market and process savings across fabless, foundry, OSAT and supplier boundaries, with quantifiable value for each party.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
 <style>
@@ -273,6 +273,47 @@ html.js .rv{opacity:0;transform:translateY(14px);transition:opacity .6s ease,tra
 html.js .rv.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}*{scroll-behavior:auto!important}.mech *{transition:none!important}}
 
+
+/* ===== v3 components ===== */
+.levers-vis{width:100%;max-width:520px;justify-self:end;margin:0}
+@media(max-width:980px){.levers-vis{justify-self:center}}
+.levers-vis .bars{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;align-items:end;height:300px;padding:0 8px;position:relative}
+.levers-vis .bars::before{content:"";position:absolute;left:0;right:0;bottom:46%;border-top:2px dashed var(--lav)}
+.levers-vis .cl-key{margin-top:14px;display:flex;justify-content:center;align-items:center;gap:8px;font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
+.levers-vis .cl-key i{width:28px;border-top:2px dashed var(--lav)}
+.levers-vis .bar{border-radius:10px 10px 4px 4px;background:linear-gradient(180deg,var(--lav) 0 var(--top),var(--lav-soft) var(--top) 100%);position:relative}
+.levers-vis .bar:nth-child(2){height:62%;--top:26%}.levers-vis .bar:nth-child(3){height:74%;--top:38%}.levers-vis .bar:nth-child(4){height:86%;--top:47%}.levers-vis .bar:nth-child(5){height:98%;--top:53%;background:linear-gradient(180deg,var(--ink) 0 var(--top),var(--lav-soft) var(--top) 100%)}
+.levers-vis .labs{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;padding:12px 8px 0;border-top:2px solid var(--ink)}
+.levers-vis .labs span{font-size:13px;font-weight:700;text-align:center;line-height:1.25}
+.levers-vis figcaption{margin-top:6px;font-size:14px;color:var(--muted);text-align:center}
+body.hero-ink .levers-vis .labs{border-color:var(--lav)}body.hero-ink .levers-vis figcaption{color:var(--muted-ink)}
+.lev-grid{margin-top:48px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:1000px){.lev-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.lev-grid{grid-template-columns:1fr}}
+.lev{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:24px;display:flex;flex-direction:column;gap:12px}
+.lev .lt{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.lev .lt b{font-size:19px;letter-spacing:-.01em}
+.lev p{font-size:15.5px;color:var(--ink);line-height:1.5}
+.lev sup{font-size:11px;color:var(--ink-2);font-weight:700}
+.lev-foot{margin-top:22px;font-weight:700;font-size:16px}
+.fns{margin-top:18px;font-size:12.5px;color:var(--muted);display:grid;gap:4px;max-width:960px}
+.uc-grid.five{grid-template-columns:1.25fr 1fr 1fr}
+.uc-grid.five .lead-uc{grid-row:span 2}
+@media(max-width:980px){.uc-grid.five{grid-template-columns:1fr}.uc-grid.five .lead-uc{grid-row:auto}}
+.uc .lvr{margin-top:14px;font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2)}
+.uc.lead-uc .lvr{color:var(--lav)}
+.uc-intro{max-width:720px}
+.enabler{text-align:left}
+.enabler .en-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:center}
+@media(max-width:900px){.enabler .en-grid{grid-template-columns:1fr;gap:28px}}
+.enabler p.body{font-size:clamp(18px,1.5vw,21px);color:var(--muted-ink);line-height:1.55}
+.enabler .links{margin-top:24px;display:flex;gap:24px;flex-wrap:wrap}
+.enabler .links a{color:#fff;font-weight:700;text-decoration:none;border-bottom:2px solid var(--lav)}
+.tstrip .wrap{display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap}
+.tstrip .soc{margin-top:14px}
+section.tstrip{padding:64px 0}
+@media(max-width:560px){.hero h1{font-size:34px}.hero h1 .bd{white-space:normal}}
+
 /* tweaks */
 .tweaks{position:fixed;right:16px;bottom:16px;z-index:60;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 16px 32px -12px rgba(39,6,93,.3);padding:12px 14px;font-size:13px;width:230px}
 .tweaks summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between}
@@ -340,136 +381,66 @@ html.js .rv.in{opacity:1;transform:none}
 <section class="hero" aria-labelledby="h1">
   <div class="wrap hero-grid">
     <div>
-      <div class="eyebrow">Semiconductor ecosystem collaboration</div>
-      <h1 id="h1">Some operational questions do not fit inside <span class="bd">one boundary.</span></h1>
-      <p class="sub">Multyx helps semiconductor partners investigate yield, quality, reliability, and manufacturing questions through approved analysis across protected data, with governed insights for each participant.</p>
+      <div class="eyebrow">Cross-company optimization for semiconductors</div>
+      <h1 id="h1">Optimize yield, capacity and time-to-market <span class="bd">across company lines.</span></h1>
+      <p class="sub">Data barriers leave yield, capacity, time-to-market and process savings on the table. Multyx runs continuous cross-company optimizations with quantifiable value, assuring every party's commercial interests.</p>
       <div class="ctas">
         <a class="btn btn-primary" href="/collaborate">Unlock a blocked collaboration <span class="arr">→</span></a>
-        <a class="btn btn-ghost" href="/use-cases">Explore use cases</a>
+        <a class="btn btn-ghost" href="#optimizations">See the optimizations</a>
       </div>
-      <p class="note">Partners approve the analysis. Each receives its own result.</p>
     </div>
-
-    <figure class="mech s4" id="mech" aria-label="Diagram: two partners keep their data in separate walled environments. An approved analysis runs in an isolated environment under a policy, approval and audit layer. Each partner receives a different output.">
-      <svg viewBox="0 0 520 470" role="img" aria-hidden="true">
-        <g class="g-approve">
-          <rect class="policy" x="150" y="150" width="220" height="170" rx="22"/>
-          <text class="lbl-s" x="260" y="142" text-anchor="middle">Policy · approval · audit</text>
-        </g>
-        <g>
-          <rect class="wall" x="10" y="40" width="132" height="150" rx="14"/>
-          <text class="lbl" x="26" y="66">Partner A</text>
-          <text class="lbl-s" x="26" y="84">e.g. fabless</text>
-          <g class="data"><rect x="26" y="102" width="100" height="10" rx="3"/><rect x="26" y="120" width="78" height="10" rx="3"/><rect x="26" y="138" width="90" height="10" rx="3"/></g>
-          <g transform="translate(108,58)"><rect class="lock" x="0" y="8" width="18" height="14" rx="3"/><path class="lock" d="M4 8 V5 a5 5 0 0 1 10 0 V8"/></g>
-          <text class="lbl-s" x="26" y="174">Data stays here</text>
-        </g>
-        <g>
-          <rect class="wall" x="378" y="40" width="132" height="150" rx="14"/>
-          <text class="lbl" x="394" y="66">Partner B</text>
-          <text class="lbl-s" x="394" y="84">e.g. foundry</text>
-          <g class="data"><rect x="394" y="102" width="86" height="10" rx="3"/><rect x="394" y="120" width="100" height="10" rx="3"/><rect x="394" y="138" width="70" height="10" rx="3"/></g>
-          <g transform="translate(476,58)"><rect class="lock" x="0" y="8" width="18" height="14" rx="3"/><path class="lock" d="M4 8 V5 a5 5 0 0 1 10 0 V8"/></g>
-          <text class="lbl-s" x="394" y="174">Data stays here</text>
-        </g>
-        <g class="flow">
-          <path class="chan" id="c1" d="M142 130 C190 130 200 205 214 222"/>
-          <path class="chan" id="c2" d="M378 130 C330 130 320 205 306 222"/>
-          <circle class="pulse" r="4"><animateMotion dur="2.6s" repeatCount="indefinite"><mpath href="#c1"/></animateMotion></circle>
-          <circle class="pulse" r="4"><animateMotion dur="2.6s" begin="-1.3s" repeatCount="indefinite"><mpath href="#c2"/></animateMotion></circle>
-        </g>
-        <g class="g-analyze">
-          <rect class="core" x="200" y="200" width="120" height="70" rx="12"/>
-          <text class="core-t" x="260" y="230">Approved</text>
-          <text class="core-t" x="260" y="248">analysis</text>
-        </g>
-        <path class="chan flow" d="M232 270 C232 320 120 320 96 352"/>
-        <path class="chan flow" d="M288 270 C288 320 400 320 424 352"/>
-        <rect class="out" x="16" y="352" width="160" height="72" rx="12"/>
-        <text class="out-t" x="32" y="378">Output for A</text>
-        <text class="lbl-s out-t" x="32" y="398" style="fill:var(--muted)">Process conditions linked</text>
-        <text class="lbl-s out-t" x="32" y="413" style="fill:var(--muted)">to the failure</text>
-        <rect class="out" x="344" y="352" width="160" height="72" rx="12"/>
-        <text class="out-t" x="360" y="378">Output for B</text>
-        <text class="lbl-s out-t" x="360" y="398" style="fill:var(--muted)">Steps to investigate,</text>
-        <text class="lbl-s out-t" x="360" y="413" style="fill:var(--muted)">in its own coding</text>
-      </svg>
-      <div class="stepcap" role="group" aria-label="Show step">
-        <button data-s="1" aria-pressed="false">1 Define</button>
-        <button data-s="2" aria-pressed="false">2 Approve</button>
-        <button data-s="3" aria-pressed="false">3 Analyze</button>
-        <button data-s="4" aria-pressed="true">4 Release</button>
-      </div>
+    <figure class="levers-vis" aria-label="Abstract visual: four value levers, yield, time-to-market, capacity and process savings, rising above a dashed company line. No values shown.">
+      <div class="bars" aria-hidden="true"><i class="bar"></i><i class="bar"></i><i class="bar"></i><i class="bar"></i></div>
+      <div class="labs" aria-hidden="true"><span>Yield</span><span>Time-to-market</span><span>Capacity</span><span>Process savings</span></div>
+      <p class="cl-key" aria-hidden="true"><i></i>Company line</p>
+      <figcaption>Four levers. One optimization at a time.</figcaption>
     </figure>
   </div>
 </section>
 
-<section class="paper" aria-labelledby="h-split">
+<section class="paper" aria-labelledby="h-value">
   <div class="wrap">
-    <div class="eyebrow rv">The split signal</div>
-    <h2 class="h2 rv" id="h-split" style="margin-top:14px">Each company holds part of the answer.</h2>
-    <p class="lead rv">A failure shows up at test. The explanation sits in process history, tool behavior, material lots, or assembly genealogy. Another company owns that data.</p>
-    <div class="chain rv" role="list">
-      <div class="link" role="listitem"><span class="no">01</span><b>Design</b><p>Product, test, and failure results</p><div class="frag"><i style="left:0;width:24%"></i></div></div>
-      <div class="link" role="listitem"><span class="no">02</span><b>Foundry</b><p>Process, inline, and wafer acceptance data</p><div class="frag"><i style="left:16%;width:22%"></i></div></div>
-      <div class="link" role="listitem"><span class="no">03</span><b>Equipment</b><p>Tool and chamber signals</p><div class="frag"><i style="left:34%;width:16%"></i></div></div>
-      <div class="link" role="listitem"><span class="no">04</span><b>Materials</b><p>Lot attributes and quality records</p><div class="frag"><i style="left:48%;width:16%"></i></div></div>
-      <div class="link" role="listitem"><span class="no">05</span><b>Packaging &amp; test</b><p>Assembly genealogy and final test</p><div class="frag"><i style="left:62%;width:20%"></i></div></div>
-      <div class="link" role="listitem"><span class="no">06</span><b>Field</b><p>System behavior and returns</p><div class="frag"><i style="left:80%;width:20%"></i></div></div>
+    <div class="eyebrow rv">Value on the table</div>
+    <h2 class="h2 rv" id="h-value" style="margin-top:14px">The value is measurable. The data behind it sits across company lines.</h2>
+    <p class="lead rv">Exposing that data to another company isn't an option, so yield learning, excursion containment and test feedback stop at the company line.</p>
+    <div class="lev-grid">
+      <div class="lev rv"><div class="lt"><b>Yield</b><span class="ev ev-i">Illustrative</span></div><p>One point of yield at a 10nm, 60k-wafer-a-month logic fab is worth about $150M a year.<sup>1</sup></p></div>
+      <div class="lev rv"><div class="lt"><b>Time-to-market</b><span class="ev ev-i">Illustrative</span></div><p>A $1B product with a 2-year window loses about $29M, roughly 3% of lifetime revenue, if it ships a week late.<sup>2</sup></p></div>
+      <div class="lev rv"><div class="lt"><b>Capacity</b><span class="ev ev-i">Illustrative</span></div><p>One point of yield at 60k wafer starts a month adds about 600 good-wafer equivalents a month, with no new tool.<sup>3</sup></p></div>
+      <div class="lev rv"><div class="lt"><b>Process savings</b><span class="ev ev-i">Illustrative</span></div><p>At a ~$30k 2nm wafer price, each 25-wafer lot an excursion reaches before containment puts about $0.75M at risk.<sup>4</sup></p></div>
     </div>
-    <p class="chain-cap rv"><i></i> Each party sees only its own segment of the signal.</p>
+    <p class="lev-foot rv">Cost of non-quality, priced in yield, weeks and wafers.</p>
+    <div class="fns rv">
+      <span><b>Industry-level figures, not Multyx results.</b></span>
+      <span>1. Illustrative. Entegris (YICAI, Nov 2019): about $150M profit per one point of yield at a 10nm logic fab running 60k wafer starts a month.</span>
+      <span>2. Illustrative. Triangle revenue model (Prasad 1997, via Arteris 2011): one week late on a 2-year window ≈ 2.86% of lifetime revenue.</span>
+      <span>3. Illustrative. 60,000 wafer starts a month × one point of yield = 600 good-wafer equivalents a month.</span>
+      <span>4. Illustrative. ~$30k is a press estimate of a leading foundry's 2nm customer wafer price (TechNode, Oct 2025), not fab cost. 25 × $30k = $0.75M.</span>
+    </div>
   </div>
 </section>
 
-<section class="ink" aria-labelledby="h-blk">
-  <div class="wrap blocked">
-    <div>
-      <div class="eyebrow rv">Why it stays blocked</div>
-      <h2 class="h2 rv" id="h-blk" style="margin-top:14px">The value is clear. The path to it isn't.</h2>
-      <p class="quote-big rv">Strong teams, useful data, clear potential value, <em>and no acceptable way to analyze it together.</em></p>
-    </div>
-    <ol class="blk-list rv">
-      <li><div><b>Legal review</b><span>A data request turns into a negotiation over IP and usage rights.</span></div></li>
-      <li><div><b>Data requests</b><span>Partners ask for raw data that the other side cannot release.</span></div></li>
-      <li><div><b>Sanitization</b><span>Anonymizing until it's safe often removes the signal you needed.</span></div></li>
-      <li><div><b>Sequential back-and-forth</b><span>Each side analyzes its half, then waits on the other. Weeks turn into months, or the question gets dropped.</span></div></li>
-    </ol>
-  </div>
-</section>
-
-<section class="tint" aria-labelledby="h-model">
-  <div class="wrap">
-    <div class="eyebrow rv">A different model</div>
-    <h2 class="h2 rv" id="h-model" style="margin-top:14px">Approve the analysis, not the data transfer.</h2>
-    <p class="lead rv">Partners agree on what runs and what each one receives. No partner receives another partner's raw data.</p>
-    <div class="steps">
-      <div class="step rv"><div class="n"><i>1</i>Define</div><h3>Agree on the question</h3><p>The question, the parties, the inputs each one contributes, and the output each one needs.</p></div>
-      <div class="step rv"><div class="n"><i>2</i>Approve</div><h3>Each owner approves</h3><p>Each data owner approves the analysis, its inputs, and which results go to whom.</p></div>
-      <div class="step rv"><div class="n"><i>3</i>Analyze</div><h3>Run it in isolation</h3><p>The analysis runs in an isolated environment, designed so no partner sees another's inputs.</p></div>
-      <div class="step rv"><div class="n"><i>4</i>Release</div><h3>Governed insight per partner</h3><p>Each participant receives only the result it is eligible to see. Every step is logged.</p></div>
-    </div>
-    <div class="model-foot rv"><a href="/how-it-works">See how it works</a><a href="/how-it-works/what-each-partner-sees">What each partner sees</a></div>
-  </div>
-</section>
-
-<section aria-labelledby="h-uc">
+<section aria-labelledby="h-opt" id="optimizations">
   <div class="wrap">
     <div class="sec-head">
-      <div><div class="eyebrow rv">Start with one question</div><h2 class="h2 rv" id="h-uc" style="margin-top:14px">Pick a problem no single company can solve.</h2></div>
-      <a class="btn btn-ghost rv" href="/use-cases">All use cases</a>
+      <div class="uc-intro"><div class="eyebrow rv">Cross-company optimizations</div><h2 class="h2 rv" id="h-opt" style="margin-top:14px">Optimizations no single company can achieve alone.</h2>
+      <p class="lead rv">They need data from more than one company, and sharing it is not an option. Multyx makes them possible for each party involved.</p></div>
+      <a class="btn btn-ghost rv" href="/use-cases">All optimizations</a>
     </div>
-    <div class="uc-grid">
+    <div class="uc-grid five">
       <a class="uc lead-uc rv" href="/use-cases/cross-company-root-cause-analysis">
         <div class="top"><span class="start">Start here</span><span class="ev ev-d">Demonstrated</span></div>
         <h3>Cross-company root cause analysis</h3>
-        <p>Investigate a downstream failure against protected process data. Each side keeps its data and gets its own result.</p>
+        <p>Investigate a downstream test failure against protected upstream process data. Each side keeps its data and gets its own result.</p>
+        <div class="lvr">Lever: Yield · scrap</div>
         <div class="parties"><span>Fabless</span><span>Foundry</span></div>
-        <span class="go">Evaluate this use case →</span>
+        <span class="go">Evaluate this optimization →</span>
       </a>
       <a class="uc rv" href="/use-cases/wat-to-test-correlation">
         <div class="top"><span></span><span class="ev ev-d">Demonstrated</span></div>
         <h3>WAT-to-test correlation</h3>
-        <p>Connect early wafer indicators with downstream test behavior.</p>
+        <p>Connect wafer acceptance data with downstream test behavior.</p>
+        <div class="lvr">Lever: Yield · time-to-yield</div>
         <div class="parties"><span>Foundry</span><span>Fabless</span></div>
         <span class="go">Evaluate →</span>
       </a>
@@ -477,9 +448,51 @@ html.js .rv.in{opacity:1;transform:none}
         <div class="top"><span></span><span class="ev ev-d">Demonstrated</span></div>
         <h3>Equipment correlation</h3>
         <p>Relate protected tool signals to yield and quality indicators.</p>
+        <div class="lvr">Lever: Yield · process cost</div>
         <div class="parties"><span>Foundry</span><span>Equipment maker</span></div>
         <span class="go">Evaluate →</span>
       </a>
+      <a class="uc rv" href="/use-cases">
+        <div class="top"><span></span><span class="ev ev-x">Label pending</span></div>
+        <h3>Test-to-assembly fallout attribution</h3>
+        <p>Separate assembly-related fallout from upstream causes to find where test escapes, DPPM and RMA costs start.</p>
+        <div class="lvr">Lever: Quality · RMA</div>
+        <div class="parties"><span>Fabless</span><span>OSAT</span><span>Foundry</span></div>
+        <span class="go">Evaluate →</span>
+      </a>
+      <a class="uc rv" href="/use-cases">
+        <div class="top"><span></span><span class="ev ev-x">Label pending</span></div>
+        <h3>Cross-company feed-forward and feedback</h3>
+        <p>Connect fab and test learning across companies to investigate yield loss across the flow, without exposing raw data to partners.</p>
+        <div class="lvr">Lever: Test cost · capacity</div>
+        <div class="parties"><span>Foundry</span><span>OSAT</span><span>Fabless</span></div>
+        <span class="go">Evaluate →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="tint" aria-labelledby="h-cont">
+  <div class="wrap">
+    <div class="eyebrow rv">Continuous, not one-off</div>
+    <h2 class="h2 rv" id="h-cont" style="margin-top:14px">Optimizations that keep running, not one-off studies.</h2>
+    <div class="why rv">
+      <div><b>Runs as new data arrives</b><p>Each optimization updates as new lots, test results and returns come in.</p></div>
+      <div><b>Value tracked per optimization</b><p>Each one reports value as yield points, weeks saved, added good-wafer output or cost avoided.</p></div>
+      <div><b>Start with one, add the next</b><p>Begin with one optimization and one partner, then add the next lever.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="ink enabler" aria-labelledby="h-en">
+  <div class="wrap en-grid">
+    <div>
+      <div class="eyebrow rv">The enabler</div>
+      <h2 class="h2 rv" id="h-en" style="margin-top:14px">A breakthrough trust-assuring technology.</h2>
+    </div>
+    <div>
+      <p class="body rv">A unique hardware and software system that uses new security, governance and AI capabilities. It assures the commercial interests of every party, and no partner receives another partner's raw data. That is what makes these optimizations possible.</p>
+      <div class="links rv"><a href="/how-it-works">How it works</a><a href="/trust">Trust &amp; Security</a></div>
     </div>
   </div>
 </section>
@@ -487,68 +500,21 @@ html.js .rv.in{opacity:1;transform:none}
 <section class="paper" aria-labelledby="h-roles">
   <div class="wrap">
     <div class="eyebrow rv">Where do you sit?</div>
-    <h2 class="h2 rv" id="h-roles" style="margin-top:14px">Fabless and foundry teams have questions they can't answer alone.</h2>
+    <h2 class="h2 rv" id="h-roles" style="margin-top:14px">Fabless and foundry teams can't answer these alone.</h2>
     <div class="roles">
-      <a class="role rv" href="/solutions/fabless"><div class="rt"><b>Fabless</b></div><q>Is the cause of this test fallout in my foundry's process?</q><p class="with">Works with <strong>foundry · OSAT · OEM</strong></p></a>
-      <a class="role rv" href="/solutions/foundry"><div class="rt"><b>Foundry</b></div><q>Which step or tool explains what my customer sees at test?</q><p class="with">Works with <strong>fabless · equipment · materials</strong></p></a>
+      <a class="role rv" href="/solutions/fabless"><div class="rt"><b>Fabless</b></div><q>Where is my yield loss coming from upstream?</q><p class="with">Works with <strong>foundry · OSAT · OEM</strong></p></a>
+      <a class="role rv" href="/solutions/foundry"><div class="rt"><b>Foundry</b></div><q>Which step or tool is costing my customer yield at test?</q><p class="with">Works with <strong>fabless · equipment · materials</strong></p></a>
     </div>
   </div>
 </section>
 
-<section class="ink" aria-labelledby="h-sees">
+<section class="tstrip" aria-labelledby="h-trust">
   <div class="wrap">
-    <div class="eyebrow rv">Collaboration is not visibility</div>
-    <h2 class="h2 rv" id="h-sees" style="margin-top:14px">What each partner sees, and never sees.</h2>
-    <p class="lead rv">Confidentiality can fail in two common ways: through access to raw data, and through results that reveal too much. Multyx is designed to govern both.</p>
-    <div class="sees rv">
-      <div class="yes"><h3>Each partner sees</h3>
-        <ul><li>Its own data, under its own control</li><li>The analysis it approved, before it runs</li><li>Who is in the collaboration, and the agreed question</li><li>The specific result it is eligible to act on</li></ul></div>
-      <div class="no"><h3>No partner sees</h3>
-        <ul><li>Another partner's raw data</li><li>The full combined analysis output</li><li>Results meant for someone else</li><li>Results from analyses it did not approve</li></ul></div>
-    </div>
-    <p class="sees-foot rv"><a href="/how-it-works/what-each-partner-sees">Read the trust model</a></p>
-  </div>
-</section>
-
-<section aria-labelledby="h-why">
-  <div class="wrap">
-    <div class="eyebrow rv">Why Multyx</div>
-    <h2 class="h2 rv" id="h-why" style="margin-top:14px">Built for semiconductor work. Protected in use. Governed per partner.</h2>
-    <div class="why rv">
-      <div><b>Built for semiconductor workflows</b><p>Fabless, foundry, equipment, materials, OSAT, and OEM questions, framed the way your engineers already work.</p></div>
-      <div><b>Protection while in use</b><p>Designed to protect data at rest, in transit, and while the analysis runs.</p></div>
-      <div><b>A different result for each partner</b><p>Outputs are released per participant, so collaborating does not mean seeing everything.</p></div>
-    </div>
-    <div class="cmp-wrap rv">
-      <table class="cmp">
-        <thead><tr><th scope="col">How partners usually collaborate</th><th scope="col">Pool the data in one place</th><th scope="col">Anonymize, then share</th><th scope="col" class="us">Approve the analysis (Multyx)</th></tr></thead>
-        <tbody>
-          <tr><th scope="row">Who sees raw data</th><td>The hub, plus every party it shares with</td><td>The receiving party, in reduced form</td><td class="us">No other partner</td></tr>
-          <tr><th scope="row">Signal kept</th><td>Full</td><td>Often reduced</td><td class="us">Full, inside the approved analysis</td></tr>
-          <tr><th scope="row">What each party receives</th><td>Usually the same view</td><td>Whatever was shared</td><td class="us">Its own governed result</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="cmp-note">A comparison of collaboration models, not vendors.</p>
-  </div>
-</section>
-
-<section class="paper" aria-labelledby="h-trust">
-  <div class="wrap trust">
     <div>
-      <div class="eyebrow rv">Trust &amp; security</div>
-      <h2 class="h2 rv" id="h-trust" style="margin-top:14px">Protection across input, execution, output, and audit.</h2>
-      <p class="lead rv">Built for the security review your team and your partners will run.</p>
-      <div class="rv" style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap"><a class="btn btn-ghost" href="/trust">Trust &amp; Security</a><a class="btn btn-ghost" href="/trust/security-pack">Request security pack</a></div>
+      <div class="eyebrow rv" id="h-trust">Trust &amp; security</div>
+      <p class="lead rv" style="margin-top:10px">Built for the security review your team and your partners will run.</p>
     </div>
-    <div>
-      <div class="layers">
-        <div class="layer rv"><small>01 · INPUT</small><b>Owner-controlled input</b><p>Encrypted, and enters an analysis only after its owner approves.</p></div>
-        <div class="layer rv"><small>02 · EXECUTION</small><b>Isolated analysis</b><p>Runs in isolation, designed to keep each partner's inputs out of reach of the others.</p></div>
-        <div class="layer rv"><small>03 · OUTPUT</small><b>Released by policy</b><p>Results are filtered so each party receives only what it's eligible to see.</p></div>
-        <div class="layer rv"><small>04 · AUDIT</small><b>Every step logged</b><p>Approvals, runs, and releases are recorded.</p></div>
-      </div>
-    </div>
+    <div class="rv" style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn btn-ghost" href="/trust">Trust &amp; Security</a><a class="btn btn-ghost" href="/trust/security-pack">Request security pack</a></div>
   </div>
 </section>
 
@@ -556,16 +522,16 @@ html.js .rv.in{opacity:1;transform:none}
   <div class="wrap final-grid">
     <div>
       <div class="eyebrow rv">Start with one</div>
-      <h2 class="rv" id="h-final" style="margin-top:14px">Bring one blocked collaboration.</h2>
-      <p class="lead rv">We scope a controlled Phase 0 with you and your partner: one question, the parties who hold the data, governed results.</p>
+      <h2 class="rv" id="h-final" style="margin-top:14px">Bring one optimization worth running.</h2>
+      <p class="lead rv">We scope a controlled Phase 0 with you and your partner: one optimization, the parties who hold the data, and the value to measure.</p>
       <div class="ctas rv"><a class="btn btn-primary" href="/collaborate">Unlock a blocked collaboration <span class="arr">→</span></a><a class="btn btn-ghost" href="/how-it-works">See how it works</a></div>
       <p class="reass rv">No data is requested at this stage.</p>
     </div>
     <ol class="phase0 rv">
-      <li><b>30-minute scoping call</b><span>Your question and who holds the other half of the signal.</span></li>
-      <li><b>Define the collaboration</b><span>Parties, inputs, and the output each one receives.</span></li>
-      <li><b>Controlled Phase 0</b><span>One approved analysis on a defined data window.</span></li>
-      <li><b>Governed results</b><span>Each partner receives its own result.</span></li>
+      <li><b>30-minute scoping call</b><span>The optimization you want and who holds the other half of the data.</span></li>
+      <li><b>Define the optimization</b><span>Parties, inputs, and the value metric each one tracks.</span></li>
+      <li><b>Controlled Phase 0</b><span>One optimization on a defined data window.</span></li>
+      <li><b>Measured result</b><span>Each partner receives its own result and the value it shows.</span></li>
     </ol>
   </div>
 </section>
@@ -575,7 +541,7 @@ html.js .rv.in{opacity:1;transform:none}
 <footer>
   <div class="wrap">
     <div class="f-grid">
-      <div><a class="f-logo" href="/"><img src="multyx-logo.svg" alt="Multyx" width="124" height="28"></a><p class="f-tag">Collaborate on data without sharing it.</p></div>
+      <div><a class="f-logo" href="/"><img src="multyx-logo.svg" alt="Multyx" width="124" height="28"></a><p class="f-tag">Cross-company optimization for yield, capacity and time-to-market.</p></div>
       <div><h5>Use Cases</h5><ul><li><a href="/use-cases/cross-company-root-cause-analysis">Cross-Company RCA</a></li><li><a href="/use-cases/wat-to-test-correlation">WAT-to-Test</a></li><li><a href="/use-cases/equipment-correlation">Equipment Correlation</a></li><li><a href="/use-cases">All use cases</a></li></ul></div>
       <div><h5>Solutions</h5><ul><li><a href="/solutions/fabless">Fabless</a></li><li><a href="/solutions/foundry">Foundry</a></li><li><a href="/solutions">All roles</a></li></ul></div>
       <div><h5>Platform</h5><ul><li><a href="/how-it-works">How It Works</a></li><li><a href="/trust">Trust &amp; Security</a></li><li><a href="/trust/security-pack">Request Security Pack</a></li></ul></div>
@@ -594,24 +560,12 @@ if(!/[?&]shot/.test(location.search))document.documentElement.classList.add("js"
 // mobile nav
 const bg=document.querySelector('.burger'),mn=document.getElementById('mnav');
 bg.addEventListener('click',()=>{const o=mn.classList.toggle('open');bg.setAttribute('aria-expanded',o)});
-
 // reveal on scroll
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
-
-// mechanism steps
-const mech=document.getElementById('mech'),btns=[...mech.querySelectorAll('.stepcap button')];
-const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-let step=4,timer=null;
-function setStep(s){step=s;mech.className='mech s'+s;btns.forEach(b=>b.setAttribute('aria-pressed',+b.dataset.s===s))}
-function auto(){clearInterval(timer);setStep(4);if(reduce)return;setTimeout(()=>{if(twA.value!=='auto')return;timer=setInterval(()=>setStep(step%4+1),2200)},3500)}
-btns.forEach(b=>b.addEventListener('click',()=>{clearInterval(timer);setStep(+b.dataset.s);document.getElementById('tw-anim').value='static'}));
-
-// tweaks (persisted)
-const twH=document.getElementById('tw-hero'),twA=document.getElementById('tw-anim');
-twH.value='light';twA.value=localStorage.getItem('mx-anim')||'auto';
-function applyTw(){document.body.classList.toggle('hero-ink',twH.value==='ink');localStorage.setItem('mx-hero',twH.value);localStorage.setItem('mx-anim',twA.value);twA.value==='auto'?auto():(clearInterval(timer),setStep(4))}
-twH.onchange=applyTw;twA.onchange=applyTw;applyTw();
+// tweaks
+const twH=document.getElementById('tw-hero');twH.value='light';
+twH.onchange=()=>document.body.classList.toggle('hero-ink',twH.value==='ink');
 </script>
 </body>
 </html>
