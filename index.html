@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Multyx — Semiconductor Data Collaboration Across Partners</title>
+<meta name="description" content="Investigate yield, quality, and reliability questions across fabless, foundry, OSAT, and supplier boundaries, with governed insights for each partner.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#27065D; --ink-2:#3A1580; --lav:#AF7EFB; --lav-soft:#E9DCFE; --orange:#FF4B00; --orange-d:#E04200;
+  --paper:#F6F6F5; --tint:#F7F3FC; --white:#fff; --line:#E4DEEC; --line-ink:rgba(255,255,255,.14);
+  --muted:#5E5670; --muted-ink:#CDBDF0;
+  --max:1200px; --r:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"Open Sans",system-ui,sans-serif;color:var(--ink);background:var(--white);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+h1,h2,h3{text-wrap:balance;margin:0}
+p{text-wrap:pretty;margin:0}
+a{color:inherit}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 32px}
+@media(max-width:640px){.wrap{padding:0 20px}body{font-size:16px}}
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2)}
+.ink .eyebrow{color:var(--lav)}
+.btn{display:inline-flex;align-items:center;gap:10px;font:700 16px "Open Sans";text-decoration:none;border-radius:999px;padding:14px 24px;min-height:48px;border:2px solid transparent;cursor:pointer;transition:background .15s,color .15s,border-color .15s}
+.btn-primary{background:var(--orange);color:#fff}
+.btn-primary:hover{background:var(--orange-d)}
+.btn-ghost{border-color:currentColor;color:var(--ink);background:transparent}
+.btn-ghost:hover{background:var(--tint)}
+.ink .btn-ghost{color:#fff}.ink .btn-ghost:hover{background:rgba(255,255,255,.08)}
+.btn .arr{transition:transform .15s}.btn:hover .arr{transform:translateX(3px)}
+:focus-visible{outline:3px solid var(--orange);outline-offset:3px;border-radius:6px}
+section{padding:112px 0}
+@media(max-width:900px){section{padding:80px 0}}
+.h2{font-size:clamp(30px,3.6vw,46px);line-height:1.12;font-weight:800;letter-spacing:-.025em}
+.lead{font-size:clamp(17px,1.4vw,20px);color:var(--muted);max-width:720px;margin-top:18px}
+.ink{background:var(--ink);color:#fff}.ink .lead{color:var(--muted-ink)}
+.paper{background:var(--paper)}.tint{background:var(--tint)}
+
+/* ---------- header ---------- */
+.site-h{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line)}
+.site-h .wrap{display:flex;align-items:center;gap:20px;height:76px}
+.logo img{height:30px;display:block}
+.nav{display:flex;gap:4px;list-style:none;margin:0;padding:0}
+.nav>li{position:relative}
+.nav>li>a{display:flex;align-items:center;gap:6px;padding:10px 10px;font-weight:600;font-size:15px;white-space:nowrap;text-decoration:none;border-radius:8px}
+.nav>li>a:hover,.nav>li:focus-within>a{background:var(--tint)}
+.nav .chev{width:9px;height:9px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-2px);opacity:.6}
+.h-cta{margin-left:auto;display:flex;align-items:center;gap:18px}
+.h-cta .util{font-size:14px;font-weight:600;text-decoration:none;color:var(--muted)}
+.h-cta .btn{padding:11px 20px;min-height:44px;font-size:15px;white-space:nowrap}
+.mega{position:absolute;left:-12px;top:100%;padding-top:10px;display:none}
+.nav>li:hover .mega,.nav>li:focus-within .mega{display:block}
+.mega-in{background:#fff;border:1px solid var(--line);border-radius:var(--r);box-shadow:0 24px 48px -16px rgba(39,6,93,.22);padding:22px;display:grid;grid-template-columns:260px 1fr 1fr;gap:24px;width:780px}
+.mega .feat{background:var(--tint);border-radius:10px;padding:18px;text-decoration:none;display:block}
+.mega .feat small{font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--orange)}
+.mega .feat b{display:block;font-size:17px;margin:6px 0}
+.mega .feat span{font-size:14px;color:var(--muted)}
+.mega h4{margin:2px 0 8px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.mega ul{list-style:none;margin:0 0 14px;padding:0}
+.mega li a{display:flex;justify-content:space-between;gap:8px;padding:7px 8px;border-radius:6px;text-decoration:none;font-size:15px;font-weight:600}
+.mega li a:hover{background:var(--paper)}
+.ev{font-size:10.5px;font-weight:700;padding:2px 7px;border-radius:4px;white-space:nowrap;align-self:center}
+.ev-d{background:#E5F3EA;color:#1D6A35}.ev-m{background:var(--tint);color:#5A2BB5;border:1px solid var(--lav-soft)}.ev-i{background:#FFF0E6;color:#A13A00}.ev-x{background:#EEE;color:#555}
+.burger{display:none;margin-left:auto;background:none;border:0;width:44px;height:44px;cursor:pointer}
+.burger span{display:block;height:2px;background:var(--ink);margin:6px 8px}
+@media(max-width:1260px){.nav,.h-cta .util{display:none}.burger{display:block}.h-cta{margin-left:0}}
+@media(max-width:520px){.h-cta{display:none}}
+.mnav{display:none;border-top:1px solid var(--line);padding:12px 20px 20px;background:#fff}
+.mnav.open{display:block}
+.mnav a{display:block;padding:12px 4px;font-weight:600;text-decoration:none;border-bottom:1px solid var(--line)}
+.mnav .btn{margin-top:16px;width:100%;justify-content:center;border-bottom:0}
+
+/* ---------- hero ---------- */
+.hero{padding:96px 0 104px;position:relative;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:56px;align-items:center}
+@media(max-width:980px){.hero-grid{grid-template-columns:1fr;gap:48px}}
+.hero h1{font-size:clamp(38px,4.6vw,60px);line-height:1.04;font-weight:800;letter-spacing:-.035em;margin-top:18px}
+.hero h1 .bd{position:relative;white-space:nowrap}
+.hero h1 .bd::after{content:"";position:absolute;left:0;right:0;bottom:.06em;height:.12em;background:var(--lav);opacity:.55;z-index:-1}
+.hero .sub{font-size:clamp(17px,1.45vw,20px);color:var(--muted);margin-top:24px;max-width:560px}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
+.hero .note{margin-top:18px;font-size:14px;color:var(--muted)}
+body.hero-ink .hero{background:var(--ink);color:#fff}
+body.hero-ink .hero .sub,body.hero-ink .hero .note{color:var(--muted-ink)}
+body.hero-ink .hero .eyebrow{color:var(--lav)}
+body.hero-ink .hero .btn-ghost{color:#fff}
+body.hero-ink .hero h1 .bd::after{opacity:.35}
+
+/* mechanism visual */
+.mech{position:relative;aspect-ratio:1/0.92;width:100%;max-width:560px;justify-self:end}
+@media(max-width:980px){.mech{justify-self:center}}
+.mech svg{width:100%;height:100%;display:block;overflow:visible}
+.mech .wall{fill:#fff;stroke:var(--ink);stroke-width:1.6}
+body.hero-ink .mech .wall{fill:#320C70;stroke:var(--lav)}
+.mech .lbl{font:700 12.5px "Open Sans";fill:var(--ink);letter-spacing:.02em}
+.mech .lbl-s{font:500 11px "Open Sans";fill:var(--muted)}
+body.hero-ink .mech .lbl{fill:#fff}body.hero-ink .mech .lbl-s{fill:var(--muted-ink)}
+.mech .data rect{fill:var(--lav-soft)}
+body.hero-ink .mech .data rect{fill:rgba(175,126,251,.35)}
+.mech .core{fill:var(--ink)}
+body.hero-ink .mech .core{fill:#fff}
+.mech .core-t{font:700 12px "Open Sans";fill:#fff;text-anchor:middle}
+body.hero-ink .mech .core-t{fill:var(--ink)}
+.mech .policy{fill:none;stroke:var(--lav);stroke-width:1.4;stroke-dasharray:4 5}
+.mech .chan{stroke:var(--ink);stroke-width:1.4;fill:none;opacity:.35}
+body.hero-ink .mech .chan{stroke:var(--lav);opacity:.55}
+.mech .pulse{fill:var(--lav)}
+.mech:not(.s3):not(.s4) .pulse{display:none}
+.mech .out{fill:#fff;stroke:var(--orange);stroke-width:1.6;opacity:0;transition:opacity .45s}
+.mech .out-t{font:700 11px "Open Sans";fill:var(--orange);opacity:0;transition:opacity .45s}
+.mech.s4 .out,.mech.s4 .out-t{opacity:1}
+.mech .lock{fill:none;stroke:var(--ink);stroke-width:1.6}
+body.hero-ink .mech .lock{stroke:var(--lav)}
+.mech .stepcap{position:absolute;left:0;right:0;bottom:-8px;display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+.mech .stepcap button{font:600 12.5px "Open Sans";border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:999px;padding:6px 12px;cursor:pointer;min-height:32px}
+.mech .stepcap button[aria-pressed=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
+body.hero-ink .mech .stepcap button{background:transparent;color:#fff;border-color:var(--line-ink)}
+body.hero-ink .mech .stepcap button[aria-pressed=true]{background:#fff;color:var(--ink)}
+.mech .g-approve,.mech .g-analyze{transition:opacity .4s}
+.mech.s1 .g-approve,.mech.s1 .g-analyze{opacity:.15}
+.mech.s2 .g-analyze{opacity:.15}
+.mech .flow{opacity:0;transition:opacity .4s}
+.mech.s3 .flow,.mech.s4 .flow{opacity:1}
+
+/* ---------- split signal ---------- */
+.chain{margin-top:56px;display:grid;grid-template-columns:repeat(6,1fr);gap:0;border:1px solid var(--line);border-radius:var(--r);background:#fff;overflow:hidden}
+@media(max-width:900px){.chain{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:520px){.chain{grid-template-columns:repeat(2,1fr)}}
+.link{padding:26px 20px 24px;border-right:1px solid var(--line);position:relative}
+.link:last-child{border-right:0}
+@media(max-width:900px){.link{border-bottom:1px solid var(--line)}}
+.link .no{font:700 12px ui-monospace,Consolas,monospace;color:var(--lav)}
+.link b{display:block;font-size:17px;margin:10px 0 8px}
+.link p{font-size:14px;color:var(--muted)}
+.link .frag{margin-top:16px;height:6px;border-radius:3px;background:var(--paper);position:relative;overflow:hidden}
+.link .frag i{position:absolute;top:0;bottom:0;background:var(--ink);border-radius:3px}
+.chain-cap{margin-top:18px;font-size:14px;color:var(--muted);display:flex;gap:10px;align-items:center}
+.chain-cap i{display:inline-block;width:28px;height:6px;border-radius:3px;background:var(--ink)}
+
+/* ---------- blocked ---------- */
+.blocked{display:grid;grid-template-columns:1fr 1.2fr;gap:64px;align-items:start}
+@media(max-width:900px){.blocked{grid-template-columns:1fr;gap:40px}}
+.blk-list{list-style:none;margin:0;padding:0;counter-reset:b}
+.blk-list li{display:grid;grid-template-columns:56px 1fr;gap:18px;padding:22px 0;border-top:1px solid var(--line-ink)}
+.blk-list li:last-child{border-bottom:1px solid var(--line-ink)}
+.blk-list li::before{counter-increment:b;content:"0" counter(b);font:700 14px ui-monospace,Consolas,monospace;color:var(--lav);padding-top:3px}
+.blk-list b{display:block;font-size:19px}
+.blk-list span{color:var(--muted-ink);font-size:15.5px}
+.quote-big{font-size:clamp(22px,2.2vw,28px);line-height:1.35;font-weight:600;margin-top:28px;max-width:460px}
+.quote-big em{font-style:normal;color:var(--lav)}
+
+/* ---------- model ---------- */
+.steps{margin-top:56px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+@media(max-width:980px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.steps{grid-template-columns:1fr}}
+.step{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:26px 24px 28px}
+.step .n{display:flex;align-items:center;gap:10px;font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
+.step .n i{font-style:normal;display:grid;place-items:center;width:30px;height:30px;border-radius:50%;border:1.6px solid var(--ink);font-size:13px;letter-spacing:0}
+.step:last-child .n i{background:var(--orange);border-color:var(--orange);color:#fff}
+.step h3{font-size:21px;margin:18px 0 10px;letter-spacing:-.01em}
+.step p{font-size:15px;color:var(--muted)}
+.model-foot{margin-top:28px;display:flex;flex-wrap:wrap;gap:22px;align-items:center}
+.model-foot a{font-weight:700;text-decoration:none;border-bottom:2px solid var(--lav)}
+
+/* ---------- use cases ---------- */
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap}
+.uc-grid{margin-top:48px;display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:20px}
+@media(max-width:980px){.uc-grid{grid-template-columns:1fr}}
+.uc{display:flex;flex-direction:column;text-decoration:none;border:1px solid var(--line);border-radius:var(--r);padding:28px;background:#fff;transition:border-color .15s,transform .15s}
+.uc:hover{border-color:var(--ink);transform:translateY(-2px)}
+.uc.lead-uc{background:var(--ink);color:#fff;border-color:var(--ink)}
+.uc .top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.uc .start{font-size:11.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--orange)}
+.uc h3{font-size:22px;margin:22px 0 12px;letter-spacing:-.01em}
+.uc.lead-uc h3{font-size:26px}
+.uc p{font-size:15px;color:var(--muted)}
+.uc.lead-uc p{color:var(--muted-ink)}
+.uc .parties{margin-top:auto;padding-top:24px;display:flex;gap:6px;flex-wrap:wrap}
+.uc .parties span{font-size:12.5px;font-weight:600;border:1px solid var(--line);border-radius:999px;padding:4px 10px}
+.uc.lead-uc .parties span{border-color:var(--line-ink)}
+.uc .go{margin-top:18px;font-weight:700;font-size:15px}
+.uc.lead-uc .go{color:#fff}
+
+/* ---------- roles ---------- */
+.roles{margin-top:48px;display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:880px}
+@media(max-width:900px){.roles{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.roles{grid-template-columns:1fr}}
+.role{display:block;text-decoration:none;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:24px;transition:border-color .15s}
+.role:hover{border-color:var(--ink)}
+.role .rt{display:flex;justify-content:space-between;align-items:center}
+.role b{font-size:19px}
+.role .soon{font-size:11px;font-weight:700;color:var(--muted);border:1px dashed var(--line);border-radius:4px;padding:2px 6px}
+.role q{display:block;margin-top:12px;font-size:15px;color:var(--ink);quotes:"“" "”"}
+.role .with{margin-top:14px;font-size:13px;color:var(--muted)}
+.role .with strong{color:var(--ink);font-weight:600}
+
+/* ---------- sees ---------- */
+.sees{margin-top:48px;display:grid;grid-template-columns:1fr 1fr;gap:0;border-radius:var(--r);overflow:hidden;border:1px solid var(--line-ink)}
+@media(max-width:760px){.sees{grid-template-columns:1fr}}
+.sees>div{padding:36px}
+.sees .yes{background:rgba(255,255,255,.06)}
+.sees h3{font-size:14px;letter-spacing:.1em;text-transform:uppercase;display:flex;gap:10px;align-items:center}
+.sees .yes h3{color:var(--lav)}.sees .no h3{color:#FFB08A}
+.sees ul{list-style:none;padding:0;margin:20px 0 0}
+.sees li{padding:14px 0;border-top:1px solid var(--line-ink);font-size:17px;display:grid;grid-template-columns:26px 1fr;gap:10px}
+.sees .yes li::before{content:"";width:14px;height:8px;border-left:2px solid var(--lav);border-bottom:2px solid var(--lav);transform:rotate(-45deg);margin-top:6px}
+.sees .no li::before{content:"×";color:#FFB08A;font-weight:700;font-size:20px;line-height:1}
+.sees-foot{margin-top:28px}
+.sees-foot a{color:#fff;font-weight:700;text-decoration:none;border-bottom:2px solid var(--lav)}
+
+/* ---------- why ---------- */
+.why{margin-top:52px;display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:2px solid var(--ink)}
+@media(max-width:860px){.why{grid-template-columns:1fr}}
+.why>div{padding:28px 28px 0 0}
+.why>div+div{padding-left:28px;border-left:1px solid var(--line)}
+@media(max-width:860px){.why>div+div{padding-left:0;border-left:0;border-top:1px solid var(--line);margin-top:28px}}
+.why b{display:block;font-size:20px;margin-bottom:10px}
+.why p{font-size:15.5px;color:var(--muted)}
+.cmp{margin-top:56px;width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;font-size:15px}
+.cmp th,.cmp td{padding:16px 18px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.cmp thead th{background:var(--paper);font-size:13px;letter-spacing:.04em}
+.cmp thead th.us{background:var(--ink);color:#fff}
+.cmp td.us{background:var(--tint);font-weight:600}
+.cmp-wrap{overflow-x:auto}
+.cmp-note{font-size:13px;color:var(--muted);margin-top:10px}
+
+/* ---------- trust ---------- */
+.trust{display:grid;grid-template-columns:1fr 1.3fr;gap:56px;align-items:start}
+@media(max-width:900px){.trust{grid-template-columns:1fr}}
+.layers{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:520px){.layers{grid-template-columns:1fr}}
+.layer{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px}
+.layer small{font:700 11px ui-monospace,Consolas,monospace;color:var(--ink-2);letter-spacing:.06em}
+.layer b{display:block;margin:8px 0 6px;font-size:17px}
+.layer p{font-size:14px;color:var(--muted)}
+.soc{margin-top:22px;font-size:14px;color:var(--muted);border-left:3px solid var(--lav);padding-left:14px}
+.ph{border:1.5px dashed #B9AECB;border-radius:12px;padding:20px;margin-top:22px;color:var(--muted);font-size:14px;background:repeating-linear-gradient(135deg,transparent 0 10px,rgba(175,126,251,.06) 10px 20px)}
+.ph b{color:var(--ink)}
+
+/* ---------- final cta ---------- */
+.final{text-align:left}
+.final-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:56px;align-items:center}
+@media(max-width:900px){.final-grid{grid-template-columns:1fr}}
+.final h2{font-size:clamp(34px,4.2vw,56px);line-height:1.06;font-weight:800;letter-spacing:-.03em}
+.phase0{list-style:none;padding:0;margin:0;border-left:2px solid var(--line-ink)}
+.phase0 li{position:relative;padding:0 0 22px 28px}
+.phase0 li::before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--ink);border:2px solid var(--lav)}
+.phase0 li:last-child::before{background:var(--orange);border-color:var(--orange)}
+.phase0 b{display:block;font-size:17px}
+.phase0 span{font-size:14.5px;color:var(--muted-ink)}
+.final .ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
+.final .reass{margin-top:16px;font-size:14px;color:var(--muted-ink)}
+
+/* ---------- footer ---------- */
+footer{background:#1C0445;color:#D9CCF5;padding:72px 0 32px;font-size:14.5px}
+.f-grid{display:grid;grid-template-columns:1.4fr repeat(5,1fr);gap:28px}
+@media(max-width:980px){.f-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:560px){.f-grid{grid-template-columns:repeat(2,1fr)}}
+footer h5{margin:0 0 14px;color:#fff;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+footer ul{list-style:none;margin:0;padding:0}
+footer li{margin:0 0 9px}
+footer a{text-decoration:none}footer a:hover{color:#fff}
+.f-logo img{height:28px;filter:brightness(0) invert(1)}
+.f-tag{margin-top:16px;max-width:240px}
+.f-bot{margin-top:56px;padding-top:24px;border-top:1px solid rgba(255,255,255,.12);display:flex;gap:20px;flex-wrap:wrap;justify-content:space-between;font-size:13px}
+
+/* reveal */
+html.js .rv{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+html.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}*{scroll-behavior:auto!important}.mech *{transition:none!important}}
+
+/* tweaks */
+.tweaks{position:fixed;right:16px;bottom:16px;z-index:60;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 16px 32px -12px rgba(39,6,93,.3);padding:12px 14px;font-size:13px;width:230px}
+.tweaks summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between}
+.tweaks summary::after{content:"＋";color:var(--muted)}
+.tweaks[open] summary::after{content:"－"}
+.tweaks label{display:flex;justify-content:space-between;align-items:center;margin-top:10px;gap:8px}
+.tweaks select{font:13px "Open Sans";border:1px solid var(--line);border-radius:6px;padding:4px 6px}
+.tweaks .tn{margin-top:10px;font-size:11.5px;color:var(--muted)}
+</style>
+</head>
+<body>
+
+<a href="#main" style="position:absolute;left:-9999px" onfocus="this.style.left='12px'" onblur="this.style.left='-9999px'">Skip to content</a>
+
+<header class="site-h">
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="Multyx home"><img src="multyx-logo.svg" alt="Multyx" width="133" height="30"></a>
+    <nav aria-label="Primary">
+      <ul class="nav">
+        <li><a href="/use-cases">Use Cases <span class="chev"></span></a>
+          <div class="mega"><div class="mega-in">
+            <a class="feat" href="/use-cases/cross-company-root-cause-analysis"><small>Start here</small><b>Cross-Company Root Cause Analysis</b><span>Investigate downstream failures against protected process evidence.</span></a>
+            <div>
+              <h4>Yield &amp; process</h4>
+              <ul>
+                <li><a href="/use-cases/wat-to-test-correlation">WAT-to-Test Correlation <span class="ev ev-d">Demonstrated</span></a></li>
+                <li><a href="/use-cases/equipment-correlation">Equipment Correlation <span class="ev ev-d">Demonstrated</span></a></li>
+                <li><a href="/use-cases/cross-company-yield-learning">Yield Learning <span class="ev ev-m">Mechanism</span></a></li>
+              </ul>
+              <h4>AI</h4>
+              <ul><li><a href="/use-cases/cross-company-ai-models">Cross-Company AI Models <span class="ev ev-m">Mechanism</span></a></li></ul>
+            </div>
+            <div>
+              <h4>Quality &amp; reliability</h4>
+              <ul>
+                <li><a href="/use-cases/supplier-quality">Supplier Quality <span class="ev ev-i">Illustrative</span></a></li>
+                <li><a href="/use-cases/reliability-failure-analysis">Reliability &amp; FA <span class="ev ev-i">Illustrative</span></a></li>
+                <li><a href="/use-cases/advanced-packaging">Advanced Packaging <span class="ev ev-x">Exploring</span></a></li>
+              </ul>
+              <ul><li><a href="/use-cases"><b>All use cases →</b></a></li></ul>
+            </div>
+          </div></div>
+        </li>
+        <li><a href="/solutions">Solutions <span class="chev"></span></a></li>
+        <li><a href="/how-it-works">How It Works <span class="chev"></span></a></li>
+        <li><a href="/trust">Trust &amp; Security <span class="chev"></span></a></li>
+        <li><a href="/resources">Resources <span class="chev"></span></a></li>
+        <li><a href="/company">Company <span class="chev"></span></a></li>
+      </ul>
+    </nav>
+    <div class="h-cta">
+      <a class="util" href="/contact">Contact</a>
+      <a class="btn btn-primary" href="/collaborate">Unlock a blocked collaboration</a>
+    </div>
+    <button class="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mnav"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mnav" id="mnav">
+    <a href="/use-cases">Use Cases</a><a href="/solutions">Solutions</a><a href="/how-it-works">How It Works</a><a href="/trust">Trust &amp; Security</a><a href="/resources">Resources</a><a href="/company">Company</a><a href="/contact">Contact</a>
+    <a class="btn btn-primary" href="/collaborate">Unlock a blocked collaboration</a>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero" aria-labelledby="h1">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Semiconductor ecosystem collaboration</div>
+      <h1 id="h1">Some operational questions do not fit inside <span class="bd">one boundary.</span></h1>
+      <p class="sub">Multyx helps semiconductor partners investigate yield, quality, reliability, and manufacturing questions through approved analysis across protected data, with governed insights for each participant.</p>
+      <div class="ctas">
+        <a class="btn btn-primary" href="/collaborate">Unlock a blocked collaboration <span class="arr">→</span></a>
+        <a class="btn btn-ghost" href="/use-cases">Explore use cases</a>
+      </div>
+      <p class="note">Partners approve the analysis. Each receives its own result.</p>
+    </div>
+
+    <figure class="mech s4" id="mech" aria-label="Diagram: two partners keep their data in separate walled environments. An approved analysis runs in an isolated environment under a policy, approval and audit layer. Each partner receives a different output.">
+      <svg viewBox="0 0 520 470" role="img" aria-hidden="true">
+        <g class="g-approve">
+          <rect class="policy" x="150" y="150" width="220" height="170" rx="22"/>
+          <text class="lbl-s" x="260" y="142" text-anchor="middle">Policy · approval · audit</text>
+        </g>
+        <g>
+          <rect class="wall" x="10" y="40" width="132" height="150" rx="14"/>
+          <text class="lbl" x="26" y="66">Partner A</text>
+          <text class="lbl-s" x="26" y="84">e.g. fabless</text>
+          <g class="data"><rect x="26" y="102" width="100" height="10" rx="3"/><rect x="26" y="120" width="78" height="10" rx="3"/><rect x="26" y="138" width="90" height="10" rx="3"/></g>
+          <g transform="translate(108,58)"><rect class="lock" x="0" y="8" width="18" height="14" rx="3"/><path class="lock" d="M4 8 V5 a5 5 0 0 1 10 0 V8"/></g>
+          <text class="lbl-s" x="26" y="174">Data stays here</text>
+        </g>
+        <g>
+          <rect class="wall" x="378" y="40" width="132" height="150" rx="14"/>
+          <text class="lbl" x="394" y="66">Partner B</text>
+          <text class="lbl-s" x="394" y="84">e.g. foundry</text>
+          <g class="data"><rect x="394" y="102" width="86" height="10" rx="3"/><rect x="394" y="120" width="100" height="10" rx="3"/><rect x="394" y="138" width="70" height="10" rx="3"/></g>
+          <g transform="translate(476,58)"><rect class="lock" x="0" y="8" width="18" height="14" rx="3"/><path class="lock" d="M4 8 V5 a5 5 0 0 1 10 0 V8"/></g>
+          <text class="lbl-s" x="394" y="174">Data stays here</text>
+        </g>
+        <g class="flow">
+          <path class="chan" id="c1" d="M142 130 C190 130 200 205 214 222"/>
+          <path class="chan" id="c2" d="M378 130 C330 130 320 205 306 222"/>
+          <circle class="pulse" r="4"><animateMotion dur="2.6s" repeatCount="indefinite"><mpath href="#c1"/></animateMotion></circle>
+          <circle class="pulse" r="4"><animateMotion dur="2.6s" begin="-1.3s" repeatCount="indefinite"><mpath href="#c2"/></animateMotion></circle>
+        </g>
+        <g class="g-analyze">
+          <rect class="core" x="200" y="200" width="120" height="70" rx="12"/>
+          <text class="core-t" x="260" y="230">Approved</text>
+          <text class="core-t" x="260" y="248">analysis</text>
+        </g>
+        <path class="chan flow" d="M232 270 C232 320 120 320 96 352"/>
+        <path class="chan flow" d="M288 270 C288 320 400 320 424 352"/>
+        <rect class="out" x="16" y="352" width="160" height="72" rx="12"/>
+        <text class="out-t" x="32" y="378">Output for A</text>
+        <text class="lbl-s out-t" x="32" y="398" style="fill:var(--muted)">Process conditions linked</text>
+        <text class="lbl-s out-t" x="32" y="413" style="fill:var(--muted)">to the failure</text>
+        <rect class="out" x="344" y="352" width="160" height="72" rx="12"/>
+        <text class="out-t" x="360" y="378">Output for B</text>
+        <text class="lbl-s out-t" x="360" y="398" style="fill:var(--muted)">Steps to investigate,</text>
+        <text class="lbl-s out-t" x="360" y="413" style="fill:var(--muted)">in its own coding</text>
+      </svg>
+      <div class="stepcap" role="group" aria-label="Show step">
+        <button data-s="1" aria-pressed="false">1 Define</button>
+        <button data-s="2" aria-pressed="false">2 Approve</button>
+        <button data-s="3" aria-pressed="false">3 Analyze</button>
+        <button data-s="4" aria-pressed="true">4 Release</button>
+      </div>
+    </figure>
+  </div>
+</section>
+
+<section class="paper" aria-labelledby="h-split">
+  <div class="wrap">
+    <div class="eyebrow rv">The split signal</div>
+    <h2 class="h2 rv" id="h-split" style="margin-top:14px">Each company holds part of the answer.</h2>
+    <p class="lead rv">A failure shows up at test. The explanation sits in process history, tool behavior, material lots, or assembly genealogy. Another company owns that data.</p>
+    <div class="chain rv" role="list">
+      <div class="link" role="listitem"><span class="no">01</span><b>Design</b><p>Product, test, and failure results</p><div class="frag"><i style="left:0;width:24%"></i></div></div>
+      <div class="link" role="listitem"><span class="no">02</span><b>Foundry</b><p>Process, inline, and wafer acceptance data</p><div class="frag"><i style="left:16%;width:22%"></i></div></div>
+      <div class="link" role="listitem"><span class="no">03</span><b>Equipment</b><p>Tool and chamber signals</p><div class="frag"><i style="left:34%;width:16%"></i></div></div>
+      <div class="link" role="listitem"><span class="no">04</span><b>Materials</b><p>Lot attributes and quality records</p><div class="frag"><i style="left:48%;width:16%"></i></div></div>
+      <div class="link" role="listitem"><span class="no">05</span><b>Packaging &amp; test</b><p>Assembly genealogy and final test</p><div class="frag"><i style="left:62%;width:20%"></i></div></div>
+      <div class="link" role="listitem"><span class="no">06</span><b>Field</b><p>System behavior and returns</p><div class="frag"><i style="left:80%;width:20%"></i></div></div>
+    </div>
+    <p class="chain-cap rv"><i></i> Each party sees only its own segment of the signal.</p>
+  </div>
+</section>
+
+<section class="ink" aria-labelledby="h-blk">
+  <div class="wrap blocked">
+    <div>
+      <div class="eyebrow rv">Why it stays blocked</div>
+      <h2 class="h2 rv" id="h-blk" style="margin-top:14px">The value is clear. The path to it isn't.</h2>
+      <p class="quote-big rv">Strong teams, useful data, clear potential value, <em>and no acceptable way to analyze it together.</em></p>
+    </div>
+    <ol class="blk-list rv">
+      <li><div><b>Legal review</b><span>A data request turns into a negotiation over IP and usage rights.</span></div></li>
+      <li><div><b>Data requests</b><span>Partners ask for raw data that the other side cannot release.</span></div></li>
+      <li><div><b>Sanitization</b><span>Anonymizing until it's safe often removes the signal you needed.</span></div></li>
+      <li><div><b>Sequential back-and-forth</b><span>Each side analyzes its half, then waits on the other. Weeks turn into months, or the question gets dropped.</span></div></li>
+    </ol>
+  </div>
+</section>
+
+<section class="tint" aria-labelledby="h-model">
+  <div class="wrap">
+    <div class="eyebrow rv">A different model</div>
+    <h2 class="h2 rv" id="h-model" style="margin-top:14px">Approve the analysis, not the data transfer.</h2>
+    <p class="lead rv">Partners agree on what runs and what each one receives. No partner receives another partner's raw data.</p>
+    <div class="steps">
+      <div class="step rv"><div class="n"><i>1</i>Define</div><h3>Agree on the question</h3><p>The question, the parties, the inputs each one contributes, and the output each one needs.</p></div>
+      <div class="step rv"><div class="n"><i>2</i>Approve</div><h3>Each owner approves</h3><p>Each data owner approves the analysis, its inputs, and which results go to whom.</p></div>
+      <div class="step rv"><div class="n"><i>3</i>Analyze</div><h3>Run it in isolation</h3><p>The analysis runs in an isolated environment, designed so no partner sees another's inputs.</p></div>
+      <div class="step rv"><div class="n"><i>4</i>Release</div><h3>Governed insight per partner</h3><p>Each participant receives only the result it is eligible to see. Every step is logged.</p></div>
+    </div>
+    <div class="model-foot rv"><a href="/how-it-works">See how it works</a><a href="/how-it-works/what-each-partner-sees">What each partner sees</a></div>
+  </div>
+</section>
+
+<section aria-labelledby="h-uc">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><div class="eyebrow rv">Start with one question</div><h2 class="h2 rv" id="h-uc" style="margin-top:14px">Pick a problem no single company can solve.</h2></div>
+      <a class="btn btn-ghost rv" href="/use-cases">All use cases</a>
+    </div>
+    <div class="uc-grid">
+      <a class="uc lead-uc rv" href="/use-cases/cross-company-root-cause-analysis">
+        <div class="top"><span class="start">Start here</span><span class="ev ev-d">Demonstrated</span></div>
+        <h3>Cross-company root cause analysis</h3>
+        <p>Investigate a downstream failure against protected process data. Each side keeps its data and gets its own result.</p>
+        <div class="parties"><span>Fabless</span><span>Foundry</span></div>
+        <span class="go">Evaluate this use case →</span>
+      </a>
+      <a class="uc rv" href="/use-cases/wat-to-test-correlation">
+        <div class="top"><span></span><span class="ev ev-d">Demonstrated</span></div>
+        <h3>WAT-to-test correlation</h3>
+        <p>Connect early wafer indicators with downstream test behavior.</p>
+        <div class="parties"><span>Foundry</span><span>Fabless</span></div>
+        <span class="go">Evaluate →</span>
+      </a>
+      <a class="uc rv" href="/use-cases/equipment-correlation">
+        <div class="top"><span></span><span class="ev ev-d">Demonstrated</span></div>
+        <h3>Equipment correlation</h3>
+        <p>Relate protected tool signals to yield and quality indicators.</p>
+        <div class="parties"><span>Foundry</span><span>Equipment maker</span></div>
+        <span class="go">Evaluate →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="paper" aria-labelledby="h-roles">
+  <div class="wrap">
+    <div class="eyebrow rv">Where do you sit?</div>
+    <h2 class="h2 rv" id="h-roles" style="margin-top:14px">Fabless and foundry teams have questions they can't answer alone.</h2>
+    <div class="roles">
+      <a class="role rv" href="/solutions/fabless"><div class="rt"><b>Fabless</b></div><q>Is the cause of this test fallout in my foundry's process?</q><p class="with">Works with <strong>foundry · OSAT · OEM</strong></p></a>
+      <a class="role rv" href="/solutions/foundry"><div class="rt"><b>Foundry</b></div><q>Which step or tool explains what my customer sees at test?</q><p class="with">Works with <strong>fabless · equipment · materials</strong></p></a>
+    </div>
+  </div>
+</section>
+
+<section class="ink" aria-labelledby="h-sees">
+  <div class="wrap">
+    <div class="eyebrow rv">Collaboration is not visibility</div>
+    <h2 class="h2 rv" id="h-sees" style="margin-top:14px">What each partner sees, and never sees.</h2>
+    <p class="lead rv">Confidentiality can fail in two common ways: through access to raw data, and through results that reveal too much. Multyx is designed to govern both.</p>
+    <div class="sees rv">
+      <div class="yes"><h3>Each partner sees</h3>
+        <ul><li>Its own data, under its own control</li><li>The analysis it approved, before it runs</li><li>Who is in the collaboration, and the agreed question</li><li>The specific result it is eligible to act on</li></ul></div>
+      <div class="no"><h3>No partner sees</h3>
+        <ul><li>Another partner's raw data</li><li>The full combined analysis output</li><li>Results meant for someone else</li><li>Results from analyses it did not approve</li></ul></div>
+    </div>
+    <p class="sees-foot rv"><a href="/how-it-works/what-each-partner-sees">Read the trust model</a></p>
+  </div>
+</section>
+
+<section aria-labelledby="h-why">
+  <div class="wrap">
+    <div class="eyebrow rv">Why Multyx</div>
+    <h2 class="h2 rv" id="h-why" style="margin-top:14px">Built for semiconductor work. Protected in use. Governed per partner.</h2>
+    <div class="why rv">
+      <div><b>Built for semiconductor workflows</b><p>Fabless, foundry, equipment, materials, OSAT, and OEM questions, framed the way your engineers already work.</p></div>
+      <div><b>Protection while in use</b><p>Designed to protect data at rest, in transit, and while the analysis runs.</p></div>
+      <div><b>A different result for each partner</b><p>Outputs are released per participant, so collaborating does not mean seeing everything.</p></div>
+    </div>
+    <div class="cmp-wrap rv">
+      <table class="cmp">
+        <thead><tr><th scope="col">How partners usually collaborate</th><th scope="col">Pool the data in one place</th><th scope="col">Anonymize, then share</th><th scope="col" class="us">Approve the analysis (Multyx)</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Who sees raw data</th><td>The hub, plus every party it shares with</td><td>The receiving party, in reduced form</td><td class="us">No other partner</td></tr>
+          <tr><th scope="row">Signal kept</th><td>Full</td><td>Often reduced</td><td class="us">Full, inside the approved analysis</td></tr>
+          <tr><th scope="row">What each party receives</th><td>Usually the same view</td><td>Whatever was shared</td><td class="us">Its own governed result</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="cmp-note">A comparison of collaboration models, not vendors.</p>
+  </div>
+</section>
+
+<section class="paper" aria-labelledby="h-trust">
+  <div class="wrap trust">
+    <div>
+      <div class="eyebrow rv">Trust &amp; security</div>
+      <h2 class="h2 rv" id="h-trust" style="margin-top:14px">Protection across input, execution, output, and audit.</h2>
+      <p class="lead rv">Built for the security review your team and your partners will run.</p>
+      <div class="rv" style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap"><a class="btn btn-ghost" href="/trust">Trust &amp; Security</a><a class="btn btn-ghost" href="/trust/security-pack">Request security pack</a></div>
+    </div>
+    <div>
+      <div class="layers">
+        <div class="layer rv"><small>01 · INPUT</small><b>Owner-controlled input</b><p>Encrypted, and enters an analysis only after its owner approves.</p></div>
+        <div class="layer rv"><small>02 · EXECUTION</small><b>Isolated analysis</b><p>Runs in isolation, designed to keep each partner's inputs out of reach of the others.</p></div>
+        <div class="layer rv"><small>03 · OUTPUT</small><b>Released by policy</b><p>Results are filtered so each party receives only what it's eligible to see.</p></div>
+        <div class="layer rv"><small>04 · AUDIT</small><b>Every step logged</b><p>Approvals, runs, and releases are recorded.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ink final" aria-labelledby="h-final">
+  <div class="wrap final-grid">
+    <div>
+      <div class="eyebrow rv">Start with one</div>
+      <h2 class="rv" id="h-final" style="margin-top:14px">Bring one blocked collaboration.</h2>
+      <p class="lead rv">We scope a controlled Phase 0 with you and your partner: one question, the parties who hold the data, governed results.</p>
+      <div class="ctas rv"><a class="btn btn-primary" href="/collaborate">Unlock a blocked collaboration <span class="arr">→</span></a><a class="btn btn-ghost" href="/how-it-works">See how it works</a></div>
+      <p class="reass rv">No data is requested at this stage.</p>
+    </div>
+    <ol class="phase0 rv">
+      <li><b>30-minute scoping call</b><span>Your question and who holds the other half of the signal.</span></li>
+      <li><b>Define the collaboration</b><span>Parties, inputs, and the output each one receives.</span></li>
+      <li><b>Controlled Phase 0</b><span>One approved analysis on a defined data window.</span></li>
+      <li><b>Governed results</b><span>Each partner receives its own result.</span></li>
+    </ol>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div><a class="f-logo" href="/"><img src="multyx-logo.svg" alt="Multyx" width="124" height="28"></a><p class="f-tag">Collaborate on data without sharing it.</p></div>
+      <div><h5>Use Cases</h5><ul><li><a href="/use-cases/cross-company-root-cause-analysis">Cross-Company RCA</a></li><li><a href="/use-cases/wat-to-test-correlation">WAT-to-Test</a></li><li><a href="/use-cases/equipment-correlation">Equipment Correlation</a></li><li><a href="/use-cases">All use cases</a></li></ul></div>
+      <div><h5>Solutions</h5><ul><li><a href="/solutions/fabless">Fabless</a></li><li><a href="/solutions/foundry">Foundry</a></li><li><a href="/solutions">All roles</a></li></ul></div>
+      <div><h5>Platform</h5><ul><li><a href="/how-it-works">How It Works</a></li><li><a href="/trust">Trust &amp; Security</a></li><li><a href="/trust/security-pack">Request Security Pack</a></li></ul></div>
+      <div><h5>Resources</h5><ul><li><a href="/resources/guides/split-signal-problem">Split-Signal Problem</a></li><li><a href="/resources/briefs">Executive Briefs</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="/company">About</a></li><li><a href="/contact">Contact</a></li></ul></div>
+    </div>
+    <div class="f-bot"><span>© 2026 Multyx. All rights reserved.</span><span><a href="/privacy">Privacy</a> · <a href="/terms">Terms</a> · <a href="/cookies">Cookies</a></span></div>
+  </div>
+</footer>
+
+<div hidden><select id="tw-hero"><option value="light">l</option><option value="ink">i</option></select><select id="tw-anim"><option value="auto">a</option><option value="static">s</option></select></div>
+
+<script>
+// progressive reveal: content stays visible if JS fails; ?shot disables reveal for screenshots
+if(!/[?&]shot/.test(location.search))document.documentElement.classList.add("js");
+// mobile nav
+const bg=document.querySelector('.burger'),mn=document.getElementById('mnav');
+bg.addEventListener('click',()=>{const o=mn.classList.toggle('open');bg.setAttribute('aria-expanded',o)});
+
+// reveal on scroll
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+// mechanism steps
+const mech=document.getElementById('mech'),btns=[...mech.querySelectorAll('.stepcap button')];
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+let step=4,timer=null;
+function setStep(s){step=s;mech.className='mech s'+s;btns.forEach(b=>b.setAttribute('aria-pressed',+b.dataset.s===s))}
+function auto(){clearInterval(timer);setStep(4);if(reduce)return;setTimeout(()=>{if(twA.value!=='auto')return;timer=setInterval(()=>setStep(step%4+1),2200)},3500)}
+btns.forEach(b=>b.addEventListener('click',()=>{clearInterval(timer);setStep(+b.dataset.s);document.getElementById('tw-anim').value='static'}));
+
+// tweaks (persisted)
+const twH=document.getElementById('tw-hero'),twA=document.getElementById('tw-anim');
+twH.value='light';twA.value=localStorage.getItem('mx-anim')||'auto';
+function applyTw(){document.body.classList.toggle('hero-ink',twH.value==='ink');localStorage.setItem('mx-hero',twH.value);localStorage.setItem('mx-anim',twA.value);twA.value==='auto'?auto():(clearInterval(timer),setStep(4))}
+twH.onchange=applyTw;twA.onchange=applyTw;applyTw();
+</script>
+</body>
+</html>
