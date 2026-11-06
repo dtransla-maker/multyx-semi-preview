@@ -314,6 +314,28 @@ body.hero-ink .levers-vis .labs{border-color:var(--lav)}body.hero-ink .levers-vi
 section.tstrip{padding:64px 0}
 @media(max-width:560px){.hero h1{font-size:34px}.hero h1 .bd{white-space:normal}}
 
+/* ===== v4 overrides (red team) ===== */
+.levers-vis .cols{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;height:300px;padding:0 8px}
+.levers-vis .col{display:grid;grid-template-rows:1fr 1fr;border-radius:10px;overflow:hidden}
+.levers-vis .col .up{background:var(--lav);border-bottom:2px dashed #fff;position:relative}
+.levers-vis .col:last-child .up{background:var(--ink)}
+.levers-vis .col .dn{background:var(--lav-soft);position:relative}
+.levers-vis .col em{position:absolute;left:10px;right:8px;font:700 11.5px/1.25 "Open Sans";font-style:normal}
+.levers-vis .col .up em{top:12px;color:#fff}.levers-vis .col .dn em{bottom:12px;color:var(--ink)}
+.levers-vis .labs{border-top:0;padding-top:12px}
+@media(max-width:560px){.levers-vis{display:none}}
+.ev-n{background:#F1ECF9;color:var(--ink-2);border:1px solid var(--lav-soft)}
+.ill-label{margin-top:28px}
+.lev{gap:8px}
+.lev .ln{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2)}
+.lev .big{font-size:clamp(30px,2.6vw,38px);font-weight:800;letter-spacing:-.02em;color:var(--ink);line-height:1.1}
+.lev .big small{font-size:15px;font-weight:700;letter-spacing:0;color:var(--muted)}
+.lev p{font-size:14.5px;color:var(--muted)}
+.uc .start{color:var(--lav)}
+.uc:not(.lead-uc) .start{color:var(--ink-2)}
+.mega .feat small{color:var(--lav)!important}
+.phase0 li:last-child::before{background:var(--lav);border-color:var(--lav)}
+
 /* tweaks */
 .tweaks{position:fixed;right:16px;bottom:16px;z-index:60;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 16px 32px -12px rgba(39,6,93,.3);padding:12px 14px;font-size:13px;width:230px}
 .tweaks summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between}
@@ -383,16 +405,20 @@ section.tstrip{padding:64px 0}
     <div>
       <div class="eyebrow">Cross-company optimization for semiconductors</div>
       <h1 id="h1">Optimize yield, capacity and time-to-market <span class="bd">across company lines.</span></h1>
-      <p class="sub">Data barriers leave yield, capacity, time-to-market and process savings on the table. Multyx runs continuous cross-company optimizations with quantifiable value, assuring every party's commercial interests.</p>
+      <p class="sub">Data barriers leave yield, capacity and time-to-market on the table. Multyx optimizes across companies without exposing any party's inputs to the others: each gets its own result, with its commercial interests assured.</p>
       <div class="ctas">
         <a class="btn btn-primary" href="/collaborate">Unlock a blocked collaboration <span class="arr">→</span></a>
         <a class="btn btn-ghost" href="#optimizations">See the optimizations</a>
       </div>
     </div>
-    <figure class="levers-vis" aria-label="Abstract visual: four value levers, yield, time-to-market, capacity and process savings, rising above a dashed company line. No values shown.">
-      <div class="bars" aria-hidden="true"><i class="bar"></i><i class="bar"></i><i class="bar"></i><i class="bar"></i></div>
+    <figure class="levers-vis" aria-label="Abstract visual: four value levers, yield, time-to-market, capacity and process savings. Each column is split by a dashed company line: the lower part sits inside your company, the upper part is unlocked with partners. No values shown.">
+      <div class="cols" aria-hidden="true">
+        <div class="col"><span class="up"><em>Unlocked with partners</em></span><span class="dn"><em>Inside your company</em></span></div>
+        <div class="col"><span class="up"></span><span class="dn"></span></div>
+        <div class="col"><span class="up"></span><span class="dn"></span></div>
+        <div class="col"><span class="up"></span><span class="dn"></span></div>
+      </div>
       <div class="labs" aria-hidden="true"><span>Yield</span><span>Time-to-market</span><span>Capacity</span><span>Process savings</span></div>
-      <p class="cl-key" aria-hidden="true"><i></i>Company line</p>
       <figcaption>Four levers. One optimization at a time.</figcaption>
     </figure>
   </div>
@@ -402,20 +428,21 @@ section.tstrip{padding:64px 0}
   <div class="wrap">
     <div class="eyebrow rv">Value on the table</div>
     <h2 class="h2 rv" id="h-value" style="margin-top:14px">The value is measurable. The data behind it sits across company lines.</h2>
-    <p class="lead rv">Exposing that data to another company isn't an option, so yield learning, excursion containment and test feedback stop at the company line.</p>
+    <p class="lead rv">Typically, foundries share WAT data, not inline and tool data. Customers share bin results, not test programs. So yield learning, excursion containment and root cause stop at the company line.</p>
+    <p class="ill-label rv"><span class="ev ev-n">Illustrative industry figures</span></p>
     <div class="lev-grid">
-      <div class="lev rv"><div class="lt"><b>Yield</b><span class="ev ev-i">Illustrative</span></div><p>One point of yield at a 10nm, 60k-wafer-a-month logic fab is worth about $150M a year.<sup>1</sup></p></div>
-      <div class="lev rv"><div class="lt"><b>Time-to-market</b><span class="ev ev-i">Illustrative</span></div><p>A $1B product with a 2-year window loses about $29M, roughly 3% of lifetime revenue, if it ships a week late.<sup>2</sup></p></div>
-      <div class="lev rv"><div class="lt"><b>Capacity</b><span class="ev ev-i">Illustrative</span></div><p>One point of yield at 60k wafer starts a month adds about 600 good-wafer equivalents a month, with no new tool.<sup>3</sup></p></div>
-      <div class="lev rv"><div class="lt"><b>Process savings</b><span class="ev ev-i">Illustrative</span></div><p>At a ~$30k 2nm wafer price, each 25-wafer lot an excursion reaches before containment puts about $0.75M at risk.<sup>4</sup></p></div>
+      <div class="lev rv"><b class="ln">Yield</b><span class="big">~$150M<small> a year</small></span><p>One point of yield at a 10nm, 60k-wafer-a-month logic fab.<sup>1</sup></p></div>
+      <div class="lev rv"><b class="ln">Time-to-market</b><span class="big">~$29M</span><p>Lost when a $1B product with a 2-year window ships one week late.<sup>2</sup></p></div>
+      <div class="lev rv"><b class="ln">Capacity</b><span class="big">~600<small> wafers a month</small></span><p>The same yield point counted as output: more good wafers with no new tool.<sup>3</sup></p></div>
+      <div class="lev rv"><b class="ln">Process savings</b><span class="big">~$0.75M</span><p>At risk for each 25-wafer lot an excursion reaches before containment.<sup>4</sup></p></div>
     </div>
     <p class="lev-foot rv">Cost of non-quality, priced in yield, weeks and wafers.</p>
     <div class="fns rv">
-      <span><b>Industry-level figures, not Multyx results.</b></span>
-      <span>1. Illustrative. Entegris (YICAI, Nov 2019): about $150M profit per one point of yield at a 10nm logic fab running 60k wafer starts a month.</span>
-      <span>2. Illustrative. Triangle revenue model (Prasad 1997, via Arteris 2011): one week late on a 2-year window ≈ 2.86% of lifetime revenue.</span>
-      <span>3. Illustrative. 60,000 wafer starts a month × one point of yield = 600 good-wafer equivalents a month.</span>
-      <span>4. Illustrative. ~$30k is a press estimate of a leading foundry's 2nm customer wafer price (TechNode, Oct 2025), not fab cost. 25 × $30k = $0.75M.</span>
+      <span><b>Industry-level figures, not Multyx results.</b> Sources differ in year and node; they show orders of magnitude, not one fab's P&amp;L.</span>
+      <span>1. Entegris (YICAI, Nov 2019): about $150M profit a year per one point of yield at a 10nm logic fab running 60k wafer starts a month.</span>
+      <span>2. Triangle revenue model (Prasad 1997, via Arteris 2011): one week late on a 2-year window ≈ 2.86% of lifetime revenue.</span>
+      <span>3. 60,000 wafer starts a month × one point of yield = 600 good-wafer equivalents a month.</span>
+      <span>4. ~$30k is a press estimate of a leading foundry's 2nm customer wafer price (TechNode, Oct 2025), not fab cost. 25 × $30k = $0.75M.</span>
     </div>
   </div>
 </section>
@@ -424,10 +451,10 @@ section.tstrip{padding:64px 0}
   <div class="wrap">
     <div class="sec-head">
       <div class="uc-intro"><div class="eyebrow rv">Cross-company optimizations</div><h2 class="h2 rv" id="h-opt" style="margin-top:14px">Optimizations no single company can achieve alone.</h2>
-      <p class="lead rv">They need data from more than one company, and sharing it is not an option. Multyx makes them possible for each party involved.</p></div>
+      <p class="lead rv">Each one computes across data held by two or more companies, without exposing any party&#39;s inputs to the others. Every party gets a result for its own decisions.</p></div>
       <a class="btn btn-ghost rv" href="/use-cases">All optimizations</a>
     </div>
-    <div class="uc-grid five">
+    <div class="uc-grid">
       <a class="uc lead-uc rv" href="/use-cases/cross-company-root-cause-analysis">
         <div class="top"><span class="start">Start here</span><span class="ev ev-d">Demonstrated</span></div>
         <h3>Cross-company root cause analysis</h3>
@@ -452,23 +479,8 @@ section.tstrip{padding:64px 0}
         <div class="parties"><span>Foundry</span><span>Equipment maker</span></div>
         <span class="go">Evaluate →</span>
       </a>
-      <a class="uc rv" href="/use-cases">
-        <div class="top"><span></span><span class="ev ev-x">Label pending</span></div>
-        <h3>Test-to-assembly fallout attribution</h3>
-        <p>Separate assembly-related fallout from upstream causes to find where test escapes, DPPM and RMA costs start.</p>
-        <div class="lvr">Lever: Quality · RMA</div>
-        <div class="parties"><span>Fabless</span><span>OSAT</span><span>Foundry</span></div>
-        <span class="go">Evaluate →</span>
-      </a>
-      <a class="uc rv" href="/use-cases">
-        <div class="top"><span></span><span class="ev ev-x">Label pending</span></div>
-        <h3>Cross-company feed-forward and feedback</h3>
-        <p>Connect fab and test learning across companies to investigate yield loss across the flow, without exposing raw data to partners.</p>
-        <div class="lvr">Lever: Test cost · capacity</div>
-        <div class="parties"><span>Foundry</span><span>OSAT</span><span>Fabless</span></div>
-        <span class="go">Evaluate →</span>
-      </a>
     </div>
+    <p class="cmp-note rv">Demonstrated = run with semiconductor partners in a controlled Phase 0.</p>
   </div>
 </section>
 
@@ -491,7 +503,7 @@ section.tstrip{padding:64px 0}
       <h2 class="h2 rv" id="h-en" style="margin-top:14px">A breakthrough trust-assuring technology.</h2>
     </div>
     <div>
-      <p class="body rv">A unique hardware and software system that uses new security, governance and AI capabilities. It assures the commercial interests of every party, and no partner receives another partner's raw data. That is what makes these optimizations possible.</p>
+      <p class="body rv">A unique hardware and software system that uses new security, governance and AI capabilities. Partners see results, never each other's inputs. That is how Multyx assures every party's commercial interests and makes these optimizations possible.</p>
       <div class="links rv"><a href="/how-it-works">How it works</a><a href="/trust">Trust &amp; Security</a></div>
     </div>
   </div>
@@ -503,7 +515,7 @@ section.tstrip{padding:64px 0}
     <h2 class="h2 rv" id="h-roles" style="margin-top:14px">Fabless and foundry teams can't answer these alone.</h2>
     <div class="roles">
       <a class="role rv" href="/solutions/fabless"><div class="rt"><b>Fabless</b></div><q>Where is my yield loss coming from upstream?</q><p class="with">Works with <strong>foundry · OSAT · OEM</strong></p></a>
-      <a class="role rv" href="/solutions/foundry"><div class="rt"><b>Foundry</b></div><q>Which step or tool is costing my customer yield at test?</q><p class="with">Works with <strong>fabless · equipment · materials</strong></p></a>
+      <a class="role rv" href="/solutions/foundry"><div class="rt"><b>Foundry</b></div><q>Is this fallout really my process, or downstream?</q><p class="with">Works with <strong>fabless · OSAT · equipment</strong></p></a>
     </div>
   </div>
 </section>
@@ -514,7 +526,7 @@ section.tstrip{padding:64px 0}
       <div class="eyebrow rv" id="h-trust">Trust &amp; security</div>
       <p class="lead rv" style="margin-top:10px">Built for the security review your team and your partners will run.</p>
     </div>
-    <div class="rv" style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn btn-ghost" href="/trust">Trust &amp; Security</a><a class="btn btn-ghost" href="/trust/security-pack">Request security pack</a></div>
+    <div class="rv" style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn btn-ghost" href="/trust/security-pack">Request security pack</a><a class="btn btn-ghost" href="/trust">Trust &amp; Security</a></div>
   </div>
 </section>
 
@@ -524,7 +536,7 @@ section.tstrip{padding:64px 0}
       <div class="eyebrow rv">Start with one</div>
       <h2 class="rv" id="h-final" style="margin-top:14px">Bring one optimization worth running.</h2>
       <p class="lead rv">We scope a controlled Phase 0 with you and your partner: one optimization, the parties who hold the data, and the value to measure.</p>
-      <div class="ctas rv"><a class="btn btn-primary" href="/collaborate">Unlock a blocked collaboration <span class="arr">→</span></a><a class="btn btn-ghost" href="/how-it-works">See how it works</a></div>
+      <div class="ctas rv"><a class="btn btn-primary" href="/collaborate">Unlock a blocked collaboration <span class="arr">→</span></a><a class="btn btn-ghost" href="/trust/security-pack">Request security pack</a></div>
       <p class="reass rv">No data is requested at this stage.</p>
     </div>
     <ol class="phase0 rv">
